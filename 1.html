@@ -7,14 +7,35 @@
 
   <body>
     <h1><a href="index.html">WEB</h1></a>
+
     <input type="button" value="Night" onclick="
-      document.querySelector('body').style.backgroundColor ='black';
-      document.querySelector('body').style.color ='white';
+      var target=  document.querySelector('body');
+      if(this.value === 'Night') {
+        target.style.backgroundColor ='black';
+        target.style.color ='white';
+        this.value='Day';
+        var alist = document.querySelectorAll('a')
+        var i = 0;
+        while(i < alist.length) {
+        	console.log(alist[i]);
+        	alist[i].style.color='skyblue';
+        	i++;
+        }
+      }
+      else {
+        target.style.backgroundColor ='white';
+        target.style.color ='black';
+        this.value ='Night';
+        var alist = document.querySelectorAll('a')
+        var i = 0;
+        while(i < alist.length) {
+        	console.log(alist[i]);
+        	alist[i].style.color='red';
+        	i++;
+        }
+      }
     ">
-    <input type="button" value="Day" onclick="
-      document.querySelector('body').style.backgroundColor ='white';
-      document.querySelector('body').style.color ='black';
-    ">
+
     <ol>
       <li><a href="1.html">html</li></a>
       <li><a href="2.html">css</li></a>
