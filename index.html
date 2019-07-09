@@ -3,18 +3,15 @@
   <head>
     <title>WEB1 - Welcome</title>
     <meta charset="utf-8">
+    <script src=colors.js></script>
   </head>
 
   <body>
     <h1><a href="index.html">WEB</h1></a>
     <input type="button" value="Night" onclick="
-      document.querySelector('body').style.backgroundColor ='black';
-      document.querySelector('body').style.color ='white';
+      nightDayChange(this);
     ">
-    <input type="button" value="Day" onclick="
-      document.querySelector('body').style.backgroundColor ='white';
-      document.querySelector('body').style.color ='black';
-    ">
+
     <ol>
       <li><a href="1.html">html</li></a>
       <li><a href="2.html">css</li></a>
