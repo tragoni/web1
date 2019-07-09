@@ -5,29 +5,38 @@
     <meta charset="utf-8">
 
     <script>
-      function nightDayChange(self){
-        var target = document.querySelector('body');
-        if(self.value === 'Night') {
-          target.style.backgroundColor = 'black';
-          target.style.color ='white';
-          self.value='Day';
+      var Body = {
+        setBackgroundColor : function(color) {
+          document.querySelector('body').style.backgroundColor = color;
+        },
+        setColor : function(color) {
+          document.querySelector('body').style.color = color;
+        }
+      }
+
+      var Links = {
+        setColor : function(color) {
           var alist = document.querySelectorAll('a');
           var i = 0;
           while(i<alist.length) {
-            alist[i].style.color='red';
+            alist[i].style.color=color;
             i++;
           }
         }
+      }
+
+      function nightDayChange(self){
+        if(self.value === 'Night') {
+          Body.setBackgroundColor('black');
+          Body.setColor('white');
+          self.value='Day';
+          Links.setColor('red');
+        }
         else {
-          target.style.backgroundColor = 'white';
-          target.style.color ='black';
+          Body.setBackgroundColor('white');
+          Body.setColor('black');
           self.value='Night';
-          var alist = document.querySelectorAll('a');
-          var i = 0;
-          while(i < alist.length) {
-            alist[i].style.color='blue';
-            i++;
-          }
+          Links.setColor('blue');
         }
       }
     </script>
@@ -57,6 +66,7 @@
     </P>
     <img src="bal.jpg" width="50%">
 
+    <br>
     <input type ="button" value="Night" onclick="
     nightDayChange(this);
     ">
